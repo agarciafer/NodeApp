@@ -30,4 +30,12 @@ node {
             } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
+	
+   stage('Deploy docker image agarciaf/nodeapp') {
+      steps{
+        sh "docker rmi -f agarciaf/nodeapp"
+		sh "docker rm -f  ci1"
+		sh "docker run -dtiP --name ci1 agarciaf/nodeapp"
+      }
+    }	
 }
