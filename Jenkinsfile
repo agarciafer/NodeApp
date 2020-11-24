@@ -33,7 +33,7 @@ node {
 	
    stage('Deploy docker image agarciaf/nodeapp') {
       sh 'docker rmi -f agarciaf/nodeapp'
-      sh 'docker rm -r ci-1'   
+      sh 'docker rm  ci-1'   
       sh 'docker run -dtiP --name ci-1 agarciaf/nodeapp'
 	 }
 }
