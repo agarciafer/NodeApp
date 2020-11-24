@@ -33,7 +33,7 @@ node {
 	
    stage('Deploy docker image agarciaf/nodeapp') {
       steps{
-        sh "docker rmi -f agarciaf/nodeapp"
+        shell("docker rmi -f agarciaf/nodeapp")
 	 }
     }		
 }
