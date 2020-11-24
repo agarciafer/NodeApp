@@ -35,6 +35,6 @@ node {
          sh "docker rmi -f agarciaf/nodeapp"
 	sh "docker rm -f  ci1"
 	sh "docker run -dti  -p 95:8000 --name ci1 agarciaf/nodeapp"
-	sh "curl 127.0.0.1:95"
+	
       }
     }
