@@ -32,6 +32,6 @@ node {
     }
 	
    stage('Deploy docker image agarciaf/nodeapp') {
-      sh 'ssh  root@192.168.33.10 docker rmi -f agarciaf/nodeapp'
+      sh 'ssh  root@localhost docker rmi -f agarciaf/nodeapp'
 	 }
 }
