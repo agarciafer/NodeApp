@@ -24,7 +24,7 @@ node {
         /* 
 			You would need to first register with DockerHub before you can push images to your account
 		*/
-        docker.withRegistry('https://registry.hub.docker.com', 'fd132cf2-4f09-41e3-927e-033781383573') {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
             } 
@@ -32,11 +32,11 @@ node {
     }
 	
    stage('Deploy docker image agarciaf/nodeapp') {
-   steps{	   
-      sh "docker rmi -f agarciaf/nodeapp"
+      steps{
+        sh "docker rmi -f agarciaf/nodeapp"
 	sh "docker rm -f  ci1"
 	sh "docker run -dti  -p 95:8000 --name ci1 agarciaf/nodeapp"
-	sh "curl 127.0.0.1:95
-	 }
-	}   
+	sh "curl 127.0.0.1:95"
+      }
+    }	
 }
